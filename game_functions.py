@@ -2,6 +2,20 @@ import pygame
 
 import sys
 
+def check_keydown_events(ship, event):
+    """Helper function to check for KEYDOWN events and react to them"""
+    if event.key == pygame.K_RIGHT:
+        ship.moving_right = True
+    elif event.key == pygame.K_LEFT:
+        ship.moving_left = True
+
+def check_keyup_events(ship, event):
+    """Helper function to check for KEYUP events and react to them"""
+    if event.key == pygame.K_RIGHT:
+        ship.moving_right = False
+    elif event.key == pygame.K_LEFT:
+        ship.moving_left = False
+
 def check_events(ship):
     """Helper funtion to check for events and react to them"""
     for event in pygame.event.get():
@@ -9,16 +23,10 @@ def check_events(ship):
             sys.exit()
 
         elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_RIGHT:
-                ship.moving_right = True
-            elif event.key == pygame.K_LEFT:
-                ship.moving_left = True
+            check_keydown_events(ship, event)
 
         elif event.type == pygame.KEYUP:
-            if event.key == pygame.K_RIGHT:
-                ship.moving_right = False
-            elif event.key == pygame.K_LEFT:
-                ship.moving_left = False
+            check_keyup_events(ship, event)
 
 def update_screen(screen, ship, settings):
     """Function that does all of the drawing on the screen on call"""

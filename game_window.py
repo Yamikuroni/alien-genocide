@@ -13,7 +13,7 @@ def run_game():
     screen = pygame.display.set_mode((settings.screen_width, settings.screen_height))
     pygame.display.set_caption("Alien Genocide")
 
-    ship = Ship(screen=screen)
+    ship = Ship(screen=screen, settings=settings)
 
     while True:
         # Watching for keyboard and mouse events.
