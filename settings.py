@@ -11,3 +11,10 @@ class Settings():
 
         # Ship settings
         self.ship_speed_factor = 6.5
+        self.magazine = 3
+
+        # Projectile settings
+        self.projectile_speed_factor = 3.25
+        self.projectile_width = 3
+        self.projectile_height = 15
+        self.projectile_color = (57, 255, 20)
